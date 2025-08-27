@@ -63,7 +63,7 @@
         transform: translateY(-5px);
       }
 
-      /* Hero Section */
+     /* Hero Section */
 .hero {
   display: flex;
   justify-content: center;
@@ -74,7 +74,7 @@
   overflow: hidden;
 }
 
-/* Flowing water background */
+/* Flowing water background with original color vibe */
 .hero::before {
   content: '';
   position: absolute;
@@ -82,7 +82,7 @@
   left: 0;
   width: 200%;
   height: 200%;
-  background: linear-gradient(270deg, #00b4d8, #0077b6, #90e0ef, #00b4d8);
+  background: linear-gradient(270deg, rgba(255,255,255,0.05), rgba(255,255,255,0.1), rgba(255,255,255,0.05));
   background-size: 600% 600%;
   animation: flow 20s linear infinite;
   z-index: 0;
@@ -96,7 +96,7 @@
 
 /* Hero Card */
 .hero-card {
-  position: relative; /* above background */
+  position: relative; 
   z-index: 1;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
@@ -162,22 +162,10 @@
 }
 
 .hero-card button:first-child {
-  background: #ffffff;
-  color: #1e3a8a;
   animation-delay: 0.7s;
 }
-.hero-card button:first-child:hover {
-  background: #f0f9ff;
-}
-
 .hero-card button:last-child {
-  background: transparent;
-  color: #ffffff;
-  border: 2px solid #ffffff;
   animation-delay: 0.9s;
-}
-.hero-card button:last-child:hover {
-  background: rgba(255, 255, 255, 0.2);
 }
 
 /* Text fade-in animation */
@@ -203,6 +191,7 @@
     font-size: 1rem;
   }
 }
+
 
 
       /* Projects */
