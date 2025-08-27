@@ -36,6 +36,9 @@
         border-radius: 50%;
         overflow: hidden;
       }
+.logo-image h1{
+      color:white;
+}
 
       .logo-image img {
         width: 100%;
