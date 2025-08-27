@@ -23,7 +23,7 @@
   left: 0;
   width: 100%;
   padding: 2rem;
-  background-color: rgba(255,255,0,0.8); /* adjust as needed */
+  background-color: rgba(255,255,255,0.8);
   color: white;
   display: flex;
   justify-content: space-between;
@@ -240,18 +240,18 @@
       }
       .card-buttons {
         display: flex;
-        justify-content: space-between; /* Push button to left, reaction to right */
+        justify-content: space-between; 
         align-items: center;
         margin-top: 12px;
-        flex-wrap: wrap; /* Makes it responsive on smaller screens */
-        gap: 10px; /* Space between items if they wrap */
+        flex-wrap: wrap; 
+        gap: 10px; 
       }
 
       .btn-project {
-        flex: 1; /* Button takes available space */
-        max-width: 200px; /* Optional max size */
+        flex: 1;
+        max-width: 200px; 
         padding: 0.5rem 1rem;
-        background: rgba(255, 255, 255, 0.2); /* glass effect */
+        background: rgba(255, 255, 255, 0.2);
         color: #fff;
         border-radius: 25px;
         font-weight: 600;
