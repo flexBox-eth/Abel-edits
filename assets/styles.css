@@ -63,67 +63,147 @@
         transform: translateY(-5px);
       }
 
-      .hero {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 90vh;
-        padding: 2rem;
-      }
+      /* Hero Section */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
 
-      .hero-card {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        padding: 3rem;
-        max-width: 700px;
-        text-align: center;
-        backdrop-filter: blur(15px) saturate(1.2);
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-      }
+/* Flowing water background */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(270deg, #00b4d8, #0077b6, #90e0ef, #00b4d8);
+  background-size: 600% 600%;
+  animation: flow 20s linear infinite;
+  z-index: 0;
+}
 
-      .hero-card h1 {
-        font-size: clamp(2rem, 5vw, 3rem);
-        font-weight: 800;
-        margin-bottom: 1rem;
-        color: #f8fafc;
-      }
+@keyframes flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-      .hero-card p {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-        color: #e0f2fe;
-      }
+/* Hero Card */
+.hero-card {
+  position: relative; /* above background */
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 3rem;
+  max-width: 700px;
+  text-align: center;
+  backdrop-filter: blur(15px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
 
-      .hero-card button {
-        padding: 0.8rem 1.5rem;
-        margin: 0.5rem;
-        border: none;
-        border-radius: 25px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: 0.3s ease;
-      }
+  opacity: 0;
+  transform: translateY(50px);
+  animation: heroFadeIn 1s ease forwards;
+}
 
-      .hero-card button:first-child {
-        background: #ffffff;
-        color: #1e3a8a;
-      }
+/* Fade in card */
+@keyframes heroFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-      .hero-card button:first-child:hover {
-        background: #f0f9ff;
-      }
+/* Hero title */
+.hero-card h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #f8fafc;
 
-      .hero-card button:last-child {
-        background: transparent;
-        color: #ffffff;
-        border: 2px solid #ffffff;
-      }
+  opacity: 0;
+  transform: translateY(20px);
+  animation: textFadeIn 1s ease forwards;
+  animation-delay: 0.3s;
+}
 
-      .hero-card button:last-child:hover {
-        background: rgba(255, 255, 255, 0.2);
-      }
+/* Hero paragraph */
+.hero-card p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #e0f2fe;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: textFadeIn 1s ease forwards;
+  animation-delay: 0.5s;
+}
+
+/* Buttons */
+.hero-card button {
+  padding: 0.8rem 1.5rem;
+  margin: 0.5rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: textFadeIn 1s ease forwards;
+}
+
+.hero-card button:first-child {
+  background: #ffffff;
+  color: #1e3a8a;
+  animation-delay: 0.7s;
+}
+.hero-card button:first-child:hover {
+  background: #f0f9ff;
+}
+
+.hero-card button:last-child {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  animation-delay: 0.9s;
+}
+.hero-card button:last-child:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Text fade-in animation */
+@keyframes textFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 70vh;
+  }
+  .hero-card {
+    padding: 2rem;
+  }
+  .hero-card h1 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+  .hero-card p {
+    font-size: 1rem;
+  }
+}
+
 
       /* Projects */
       .sample-projects {
